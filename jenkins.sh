@@ -3,6 +3,7 @@ git fetch
 echo "fetching"
 
 git pull origin master
-git pull
+git checkout -b master
+git pull origin master
 
 echo "pulled"
