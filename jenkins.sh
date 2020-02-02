@@ -4,10 +4,7 @@ git reset --hard;\
         git reset --hard;\
         git fetch --all;\
         git pull origin master;\
+        git branch --set-upstream-to=origin/master master
 git pull;\
-git checkout -b jen-dev;\
-git checkout master;\
-git branch -D jen-dev;\
-git merge master;\
 
 echo "pulled"
