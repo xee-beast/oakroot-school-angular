@@ -6,6 +6,6 @@
 export const environment = {
   production: false,
   hmr       : false,
-  backendUrl: "https://stg-api.thesipsolution.com/", // "https://stg-api.thesipsolution.com/",
-  frontendUrl: "https://stg-dashboard.thesipsolution.com/",
+  backendUrl: "http://api-school.devoakroot.com/", // "http://api-school.devoakroot.com/",
+  frontendUrl: "http://app-school.devoakroot.com/",
 };
