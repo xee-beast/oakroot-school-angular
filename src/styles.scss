@@ -1,1 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
+// Import Oakroot main library
+@import "app/theme-core/scss/theme/bootstrap.min.scss";
+@import "app/theme-core/scss/theme/material-dashboard.scss";
+@import "app/theme-core/scss/theme/demo.scss";
