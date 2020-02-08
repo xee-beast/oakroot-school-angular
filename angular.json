@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "devoakroot-school-app": {
+    "testProject": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/devoakroot-school-app",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -28,18 +28,28 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/@fortawesome/fontawesome-free/css/all.css",
+              "node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/global-theme/bootstrapThemes.scss",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/@fortawesome/fontawesome-free/js/all.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+                         
+            ]
           },
           "configurations": {
-            "production": {
+            "hmr": {
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "with": "src/environments/environment.hmr.ts"
                 }
-              ],
+              ]
+            },
+            "production": {
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -49,16 +59,10 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "budgets": [
+              "fileReplacements": [
                 {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
                 }
               ]
             }
@@ -67,19 +71,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "devoakroot-school-app:build",
-            "host": "0.0.0.0"
+            "browserTarget": "testProject:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "devoakroot-school-app:build:production"
+              "browserTarget": "testProject:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "devoakroot-school-app:build"
+            "browserTarget": "testProject:build"
           }
         },
         "test": {
@@ -94,6 +97,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -116,15 +120,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "devoakroot-school-app:serve"
+            "devServerTarget": "testProject:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "devoakroot-school-app:serve:production"
+              "devServerTarget": "testProject:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "devoakroot-school-app"
+    }
+  },
+  "defaultProject": "testProject"
 }
